@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :categories
+  resources :create_exercise_categories
+  resources :exercises
   require 'sidekiq/web'
 
   scope :monitoring do
@@ -17,6 +20,7 @@ Rails.application.routes.draw do
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  #localhost:3000/api/vi/users/login
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       namespace :users do
